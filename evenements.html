@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flâna — Événements</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root { --terre:#2C1810; --sable:#F5EDD6; --tuile:#C4602A; --mousse:#4A6741; --gris:#8A8070; --creme:#FBF7EE; }
+html { scroll-behavior:smooth; }
+body { background:var(--creme); color:var(--terre); font-family:'DM Sans',sans-serif; overflow-x:hidden; }
+
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:0.8rem 2rem;
+  background:rgba(251,247,238,0.96); backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(44,24,16,0.07);
+}
+.logo { font-family:'Playfair Display',serif; font-size:1.35rem; color:var(--terre); text-decoration:none; }
+.logo em { color:var(--tuile); font-style:italic; }
+.btn-nav { background:var(--tuile); color:#fff; padding:0.42rem 1rem; border-radius:99px; font-size:0.8rem; font-weight:500; text-decoration:none; transition:background .2s; }
+.btn-nav:hover { background:var(--terre); }
+
+/* HEADER */
+.header { padding:6rem 2rem 2rem; max-width:1100px; margin:0 auto; }
+.header-tag { font-size:0.65rem; letter-spacing:2.5px; text-transform:uppercase; color:var(--tuile); font-weight:500; margin-bottom:0.6rem; }
+.header h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3rem); line-height:1.1; margin-bottom:0.5rem; }
+.header h1 em { color:var(--tuile); font-style:italic; }
+.header-sub { font-size:0.9rem; color:var(--gris); font-weight:300; }
+
+/* FILTRES */
+.filtres-wrap { max-width:1100px; margin:0 auto; padding:1.5rem 2rem; position:sticky; top:57px; z-index:50; background:rgba(251,247,238,0.96); backdrop-filter:blur(10px); border-bottom:1px solid rgba(44,24,16,0.06); }
+.filtres { display:flex; gap:0.5rem; flex-wrap:wrap; }
+.filtre-btn {
+  padding:0.38rem 0.9rem; border-radius:99px;
+  border:1.5px solid rgba(44,24,16,0.15);
+  font-size:0.78rem; cursor:pointer;
+  background:transparent; color:var(--terre);
+  font-family:'DM Sans',sans-serif;
+  transition:all .15s;
+}
+.filtre-btn:hover { border-color:var(--tuile); color:var(--tuile); }
+.filtre-btn.active { background:var(--terre); color:var(--sable); border-color:var(--terre); }
+.filtre-sep { width:1px; background:rgba(44,24,16,0.12); margin:0 0.25rem; }
+
+/* GRILLE */
+.grille-wrap { max-width:1100px; margin:0 auto; padding:2rem; }
+.grille { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:1.25rem; }
+.count { font-size:0.78rem; color:var(--gris); margin-bottom:1.25rem; }
+
+/* CARTE ÉVÉNEMENT */
+.carte {
+  background:#fff; border-radius:18px;
+  border:1px solid rgba(44,24,16,0.06);
+  overflow:hidden; cursor:pointer;
+  transition:transform .2s, box-shadow .2s;
+  text-decoration:none; color:inherit;
+  display:block;
+}
+.carte:hover { transform:translateY(-4px); box-shadow:0 8px 32px rgba(44,24,16,0.1); }
+.carte-banner {
+  height:7px;
+}
+.carte-body { padding:1.25rem; }
+.carte-cat { font-size:0.62rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gris); display:flex; align-items:center; gap:5px; margin-bottom:0.6rem; }
+.cdot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+.carte-title { font-family:'Playfair Display',serif; font-size:1.05rem; line-height:1.3; margin-bottom:0.75rem; }
+.carte-meta { display:flex; flex-direction:column; gap:0.3rem; }
+.carte-meta-row { display:flex; align-items:center; gap:0.5rem; font-size:0.78rem; color:var(--gris); }
+.carte-meta-icon { font-size:0.85rem; width:16px; text-align:center; flex-shrink:0; }
+.carte-footer { padding:0.9rem 1.25rem; border-top:1px solid rgba(44,24,16,0.05); display:flex; justify-content:space-between; align-items:center; }
+.carte-tarif { font-size:0.78rem; font-weight:500; }
+.carte-tarif.gratuit { color:var(--mousse); }
+.carte-tarif.payant { color:var(--tuile); }
+.carte-dept { font-size:0.72rem; background:var(--sable); padding:0.2rem 0.6rem; border-radius:99px; color:var(--gris); }
+
+/* VIDE */
+.vide { text-align:center; padding:4rem 2rem; color:var(--gris); }
+.vide-icon { font-size:2.5rem; margin-bottom:1rem; }
+.vide h3 { font-family:'Playfair Display',serif; font-size:1.3rem; margin-bottom:0.5rem; color:var(--terre); }
+.vide p { font-size:0.875rem; line-height:1.6; }
+
+footer { border-top:1px solid rgba(44,24,16,.08); padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; font-size:0.72rem; color:var(--gris); max-width:1100px; margin:0 auto; }
+footer .logo { font-size:1.05rem; }
+
+@media(max-width:600px) { .filtres-wrap { top:53px; } .grille { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Fl<em>â</em>na</a>
+  <a href="organise.html" class="btn-nav">Référencer mon événement</a>
+</nav>
+
+<div class="header">
+  <p class="header-tag">Val de Loire · 37 · 49 · 86</p>
+  <h1>Les événements <em>du moment</em></h1>
+  <p class="header-sub">Brocantes, marchés, expos, concerts — vérifiés à la main, gratuits à découvrir.</p>
+</div>
+
+<div class="filtres-wrap">
+  <div class="filtres" id="filtres">
+    <button class="filtre-btn active" onclick="filtrer('tous',this)">Tous</button>
+    <div class="filtre-sep"></div>
+    <button class="filtre-btn" onclick="filtrer('37',this)">37 — Indre-et-Loire</button>
+    <button class="filtre-btn" onclick="filtrer('49',this)">49 — Maine-et-Loire</button>
+    <button class="filtre-btn" onclick="filtrer('86',this)">86 — Vienne</button>
+    <div class="filtre-sep"></div>
+    <button class="filtre-btn" onclick="filtrer('Brocante',this)">Brocante</button>
+    <button class="filtre-btn" onclick="filtrer('Marché',this)">Marché</button>
+    <button class="filtre-btn" onclick="filtrer('Exposition',this)">Exposition</button>
+    <button class="filtre-btn" onclick="filtrer('Concert',this)">Concert</button>
+    <button class="filtre-btn" onclick="filtrer('Atelier',this)">Atelier</button>
+    <button class="filtre-btn" onclick="filtrer('Gratuit',this)">Gratuit uniquement</button>
+  </div>
+</div>
+
+<div class="grille-wrap">
+  <div class="count" id="count"></div>
+  <div class="grille" id="grille"></div>
+</div>
+
+<footer>
+  <a href="index.html" class="logo">Fl<em>â</em>na</a>
+  <div>Val de Loire · 37 · 49 · 86</div>
+  <div>© 2025 Flâna</div>
+</footer>
+
+<script>
+const COULEURS = {
+  'Brocante':   '#4A6741',
+  'Marché':     '#C4602A',
+  'Exposition': '#8A8070',
+  'Concert':    '#6B9BD2',
+  'Atelier':    '#B5813A',
+  'Fête locale':'#A05C7B',
+  'Sport':      '#3A7B8C',
+};
+
+const evenements = [
+  {
+    id: 1,
+    titre: "Grande brocante du bord de Loire",
+    type: "Brocante",
+    dept: "37",
+    ville: "Chinon",
+    date: "2025-05-11",
+    heure_debut: "11:00",
+    heure_fin: "18:00",
+    tarif: "gratuit",
+    prix: "",
+    adresse: "Quai Danton",
+    description: "La grande brocante annuelle de Chinon, au bord de la Loire. Des dizaines de brocanteurs professionnels et particuliers vous proposent meubles, vaisselle, vêtements vintage et objets insolites. Ambiance conviviale, idéale en famille.",
+    public: "tout_public",
+  },
+  {
+    id: 2,
+    titre: "Marché des producteurs de nuit",
+    type: "Marché",
+    dept: "49",
+    ville: "Saumur",
+    date: "2025-05-09",
+    heure_debut: "18:00",
+    heure_fin: "22:00",
+    tarif: "gratuit",
+    prix: "",
+    adresse: "Place de la République",
+    description: "Chaque vendredi soir, les producteurs locaux du Saumurois investissent la place centrale. Vins, fromages, légumes, confitures, pains artisanaux. Une ambiance de village en plein cœur de ville, sans chichi.",
+    public: "tout_public",
+  },
+  {
+    id: 3,
+    titre: "Atelier céramique portes ouvertes",
+    type: "Atelier",
+    dept: "86",
+    ville: "Poitiers",
+    date: "2025-05-17",
+    heure_debut: "14:00",
+    heure_fin: "19:00",
+    tarif: "gratuit",
+    prix: "",
+    adresse: "12 rue des Cordeliers",
+    description: "L'atelier Terre Vive ouvre ses portes pour une après-midi de découverte. Démonstrations de tournage, initiation au modelage, exposition des créations de l'année. Accessible aux enfants dès 6 ans.",
+    public: "tout_public",
+  },
+  {
+    id: 4,
+    titre: "Session acoustique au café du Vieux Pont",
+    type: "Concert",
+    dept: "37",
+    ville: "Tours",
+    date: "2025-05-08",
+    heure_debut: "20:00",
+    heure_fin: "23:00",
+    tarif: "payant",
+    prix: "5€",
+    adresse: "3 rue du Vieux Pont",
+    description: "Concert acoustique intime dans le cadre chaleureux du café du Vieux Pont. Ce jeudi, deux artistes locaux se partagent la scène pour une soirée folk et chanson française. Réservation conseillée, places limitées.",
+    public: "adultes",
+  },
+  {
+    id: 5,
+    titre: "Exposition photos — Val de Loire d'hier",
+    type: "Exposition",
+    dept: "37",
+    ville: "Amboise",
+    date: "2025-05-03",
+    heure_debut: "10:00",
+    heure_fin: "18:00",
+    tarif: "gratuit",
+    prix: "",
+    adresse: "Médiathèque d'Amboise",
+    description: "Une sélection de photographies d'archives du Val de Loire entre 1900 et 1970. Paysages disparus, visages oubliés, architecture ancienne. Une plongée dans le patrimoine local à voir en famille.",
+    public: "tout_public",
+  },
+  {
+    id: 6,
+    titre: "Brocante et vide-greniers de printemps",
+    type: "Brocante",
+    dept: "49",
+    ville: "Angers",
+    date: "2025-05-18",
+    heure_debut: "08:00",
+    heure_fin: "17:00",
+    tarif: "gratuit",
+    prix: "",
+    adresse: "Parc de la Garenne",
+    description: "Le vide-greniers de printemps du quartier de la Garenne réunit chaque année plus de 200 exposants. Bonnes affaires garanties, buvette sur place, animations pour les enfants.",
+    public: "tout_public",
+  },
+  {
+    id: 7,
+    titre: "Fête de la nature — Balades guidées",
+    type: "Fête locale",
+    dept: "86",
+    ville: "Châtellerault",
+    date: "2025-05-24",
+    heure_debut: "09:00",
+    heure_fin: "13:00",
+    tarif: "gratuit",
+    prix: "",
+    adresse: "Parc de Blossac",
+    description: "Dans le cadre de la Fête de la Nature, l'association Nature Vienne propose trois balades guidées à travers le parc. Oiseaux, plantes sauvages, insectes — un regard différent sur la nature urbaine. Sans réservation.",
+    public: "tout_public",
+  },
+  {
+    id: 8,
+    titre: "Marché artisanal du château",
+    type: "Marché",
+    dept: "37",
+    ville: "Chinon",
+    date: "2025-05-25",
+    heure_debut: "10:00",
+    heure_fin: "19:00",
+    tarif: "gratuit",
+    prix: "",
+    adresse: "Esplanade du château",
+    description: "Sous les remparts du château de Chinon, une trentaine d'artisans locaux exposent leurs créations. Bijoux, textiles, poteries, savons, bois sculptés. Un marché soigné, loin des souvenirs industriels.",
+    public: "tout_public",
+  },
+];
+
+let filtreActif = 'tous';
+
+function formatDate(dateStr) {
+  const d = new Date(dateStr);
+  return d.toLocaleDateString('fr-FR', { weekday:'long', day:'numeric', month:'long' });
+}
+
+function creerCarte(e) {
+  const couleur = COULEURS[e.type] || '#8A8070';
+  const tarif = e.tarif === 'gratuit' ? 'Gratuit' : e.tarif === 'libre' ? 'Entrée libre' : e.prix;
+  const tariClass = e.tarif === 'payant' ? 'payant' : 'gratuit';
+  return `
+    <a class="carte" href="evenement.html?id=${e.id}">
+      <div class="carte-banner" style="background:${couleur}"></div>
+      <div class="carte-body">
+        <div class="carte-cat">
+          <span class="cdot" style="background:${couleur}"></span>
+          ${e.type}
+        </div>
+        <div class="carte-title">${e.titre}</div>
+        <div class="carte-meta">
+          <div class="carte-meta-row"><span class="carte-meta-icon">📅</span>${formatDate(e.date)}</div>
+          <div class="carte-meta-row"><span class="carte-meta-icon">🕐</span>${e.heure_debut}${e.heure_fin ? ' – ' + e.heure_fin : ''}</div>
+          <div class="carte-meta-row"><span class="carte-meta-icon">📍</span>${e.ville}${e.adresse ? ' · ' + e.adresse : ''}</div>
+        </div>
+      </div>
+      <div class="carte-footer">
+        <span class="carte-tarif ${tariClass}">${tarif}</span>
+        <span class="carte-dept">${e.dept}</span>
+      </div>
+    </a>
+  `;
+}
+
+function filtrer(valeur, btn) {
+  filtreActif = valeur;
+  document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  afficher();
+}
+
+function afficher() {
+  let liste = evenements;
+  if (filtreActif === 'Gratuit') {
+    liste = evenements.filter(e => e.tarif === 'gratuit');
+  } else if (filtreActif !== 'tous') {
+    liste = evenements.filter(e => e.dept === filtreActif || e.type === filtreActif);
+  }
+
+  const grille = document.getElementById('grille');
+  const count = document.getElementById('count');
+
+  if (liste.length === 0) {
+    grille.innerHTML = `
+      <div class="vide" style="grid-column:1/-1">
+        <div class="vide-icon">🔍</div>
+        <h3>Aucun événement pour ce filtre</h3>
+        <p>Essayez un autre département ou type d'événement.<br>De nouveaux événements sont ajoutés chaque semaine.</p>
+      </div>`;
+  } else {
+    grille.innerHTML = liste.map(creerCarte).join('');
+  }
+
+  count.textContent = liste.length === 1 ? '1 événement' : `${liste.length} événements`;
+}
+
+afficher();
+</script>
+</body>
+</html>
