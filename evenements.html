@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flâna — Événements</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root { --terre:#2C1810; --sable:#F5EDD6; --tuile:#C4602A; --mousse:#4A6741; --gris:#8A8070; --creme:#FBF7EE; }
+html { scroll-behavior:smooth; }
+body { background:var(--creme); color:var(--terre); font-family:'DM Sans',sans-serif; overflow-x:hidden; }
+
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:0.8rem 2rem;
+  background:rgba(251,247,238,0.96); backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(44,24,16,0.07);
+}
+.logo { font-family:'Playfair Display',serif; font-size:1.35rem; color:var(--terre); text-decoration:none; }
+.logo em { color:var(--tuile); font-style:italic; }
+.btn-nav { background:var(--tuile); color:#fff; padding:0.42rem 1rem; border-radius:99px; font-size:0.8rem; font-weight:500; text-decoration:none; transition:background .2s; }
+.btn-nav:hover { background:var(--terre); }
+
+/* HEADER */
+.header { padding:6rem 2rem 2rem; max-width:1100px; margin:0 auto; }
+.header-tag { font-size:0.65rem; letter-spacing:2.5px; text-transform:uppercase; color:var(--tuile); font-weight:500; margin-bottom:0.6rem; }
+.header h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3rem); line-height:1.1; margin-bottom:0.5rem; }
+.header h1 em { color:var(--tuile); font-style:italic; }
+.header-sub { font-size:0.9rem; color:var(--gris); font-weight:300; }
+
+/* FILTRES */
+.filtres-wrap { max-width:1100px; margin:0 auto; padding:1.5rem 2rem; position:sticky; top:57px; z-index:50; background:rgba(251,247,238,0.96); backdrop-filter:blur(10px); border-bottom:1px solid rgba(44,24,16,0.06); }
+.filtres { display:flex; gap:0.5rem; flex-wrap:wrap; }
+.filtre-btn {
+  padding:0.38rem 0.9rem; border-radius:99px;
+  border:1.5px solid rgba(44,24,16,0.15);
+  font-size:0.78rem; cursor:pointer;
+  background:transparent; color:var(--terre);
+  font-family:'DM Sans',sans-serif;
+  transition:all .15s;
+}
+.filtre-btn:hover { border-color:var(--tuile); color:var(--tuile); }
+.filtre-btn.active { background:var(--terre); color:var(--sable); border-color:var(--terre); }
+.filtre-sep { width:1px; background:rgba(44,24,16,0.12); margin:0 0.25rem; }
+
+/* GRILLE */
+.grille-wrap { max-width:1100px; margin:0 auto; padding:2rem; }
+.grille { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:1.25rem; }
+.count { font-size:0.78rem; color:var(--gris); margin-bottom:1.25rem; }
+
+/* CARTE ÉVÉNEMENT */
+.carte {
+  background:#fff; border-radius:18px;
+  border:1px solid rgba(44,24,16,0.06);
+  overflow:hidden; cursor:pointer;
+  transition:transform .2s, box-shadow .2s;
+  text-decoration:none; color:inherit;
+  display:block;
+}
+.carte:hover { transform:translateY(-4px); box-shadow:0 8px 32px rgba(44,24,16,0.1); }
+.carte-banner {
+  height:7px;
+}
+.carte-body { padding:1.25rem; }
+.carte-cat { font-size:0.62rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gris); display:flex; align-items:center; gap:5px; margin-bottom:0.6rem; }
+.cdot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+.carte-title { font-family:'Playfair Display',serif; font-size:1.05rem; line-height:1.3; margin-bottom:0.75rem; }
+.carte-meta { display:flex; flex-direction:column; gap:0.3rem; }
+.carte-meta-row { display:flex; align-items:center; gap:0.5rem; font-size:0.78rem; color:var(--gris); }
+.carte-meta-icon { font-size:0.85rem; width:16px; text-align:center; flex-shrink:0; }
+.carte-footer { padding:0.9rem 1.25rem; border-top:1px solid rgba(44,24,16,0.05); display:flex; justify-content:space-between; align-items:center; }
+.carte-tarif { font-size:0.78rem; font-weight:500; }
+.carte-tarif.gratuit { color:var(--mousse); }
+.carte-tarif.payant { color:var(--tuile); }
+.carte-dept { font-size:0.72rem; background:var(--sable); padding:0.2rem 0.6rem; border-radius:99px; color:var(--gris); }
+
+/* VIDE */
+.vide { text-align:center; padding:4rem 2rem; color:var(--gris); }
+.vide-icon { font-size:2.5rem; margin-bottom:1rem; }
+.vide h3 { font-family:'Playfair Display',serif; font-size:1.3rem; margin-bottom:0.5rem; color:var(--terre); }
+.vide p { font-size:0.875rem; line-height:1.6; }
+
+footer { border-top:1px solid rgba(44,24,16,.08); padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; font-size:0.72rem; color:var(--gris); max-width:1100px; margin:0 auto; }
+footer .logo { font-size:1.05rem; }
+
+@media(max-width:600px) { .filtres-wrap { top:53px; } .grille { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Fl<em>â</em>na</a>
+  <a href="organise.html" class="btn-nav">Référencer mon événement</a>
+</nav>
+
+<div class="header">
+  <p class="header-tag">Val de Loire · 37 · 49 · 86</p>
+  <h1>Les événements <em>du moment</em></h1>
+  <p class="header-sub">Brocantes, marchés, expos, concerts — vérifiés à la main, gratuits à découvrir.</p>
+</div>
+
+<div class="filtres-wrap">
+  <div class="filtres" id="filtres">
+    <button class="filtre-btn active" onclick="filtrer('tous',this)">Tous</button>
+    <div class="filtre-sep"></div>
+    <button class="filtre-btn" onclick="filtrer('37',this)">37 — Indre-et-Loire</button>
+    <button class="filtre-btn" onclick="filtrer('49',this)">49 — Maine-et-Loire</button>
+    <button class="filtre-btn" onclick="filtrer('86',this)">86 — Vienne</button>
+    <div class="filtre-sep"></div>
+    <button class="filtre-btn" onclick="filtrer('Brocante',this)">Brocante</button>
+    <button class="filtre-btn" onclick="filtrer('Marché',this)">Marché</button>
+    <button class="filtre-btn" onclick="filtrer('Exposition',this)">Exposition</button>
+    <button class="filtre-btn" onclick="filtrer('Concert',this)">Concert</button>
+    <button class="filtre-btn" onclick="filtrer('Atelier',this)">Atelier</button>
+    <button class="filtre-btn" onclick="filtrer('Gratuit',this)">Gratuit uniquement</button>
+  </div>
+</div>
+
+<div class="grille-wrap">
+  <div class="count" id="count"></div>
+  <div class="grille" id="grille"></div>
+</div>
+
+<footer>
+  <a href="index.html" class="logo">Fl<em>â</em>na</a>
+  <div>Val de Loire · 37 · 49 · 86</div>
+  <div>© 2025 Flâna</div>
+</footer>
+
+<script>
+const COULEURS = {
+  'Brocante':   '#4A6741',
+  'Marché':     '#C4602A',
+  'Exposition': '#8A8070',
+  'Concert':    '#6B9BD2',
+  'Atelier':    '#B5813A',
+  'Fête locale':'#A05C7B',
+  'Sport':      '#3A7B8C',
+};
+
+const evenements = [
+  // TOURS (37)
+  { id:1, titre:"Foire de Tours 2026", type:"Fête locale", dept:"37", ville:"Tours", date:"2026-05-01", heure_debut:"10:00", heure_fin:"20:00", tarif:"gratuit", prix:"", adresse:"Parc des Expositions de Tours", description:"La Foire de Tours 2026, l'un des plus grands événements commerciaux de la région, se tient du 1er au 10 mai. Entrée gratuite, parking gratuit. Village gastronomique ouvert jusqu'à minuit (23h le dernier jour). Concerts gratuits tous les soirs, environ 400 exposants et près de 400 000 visiteurs attendus.", public:"tout_public" },
+  { id:2, titre:"Fête foraine de Tours", type:"Fête locale", dept:"37", ville:"Tours", date:"2026-04-24", heure_debut:"14:00", heure_fin:"23:00", tarif:"gratuit", prix:"Attractions payantes", adresse:"Centre-ville de Tours", description:"La fête foraine de Tours investit le centre-ville du 24 avril au 17 mai 2026. Entrée libre, attractions payantes. Horaires : 14h–23h en semaine, 14h–2h les vendredis et samedis. Manèges, stands, ambiance festive pour toute la famille.", public:"tout_public" },
+  { id:3, titre:"Aucard de Tours", type:"Concert", dept:"37", ville:"Tours", date:"2026-06-09", heure_debut:"14:00", heure_fin:"23:59", tarif:"payant", prix:"Voir billetterie", adresse:"Parc de la Gloriette", description:"L'Aucard de Tours, festival de musiques alternatives incontournable de la région, revient du 9 au 13 juin 2026 au Parc de la Gloriette. Rock, techno, ska, métal, hip-hop — plusieurs scènes et des centaines d'artistes au bord de la Loire.", public:"adultes" },
+  { id:4, titre:"Nuit des Musées — Indre-et-Loire", type:"Exposition", dept:"37", ville:"Tours", date:"2026-05-17", heure_debut:"19:00", heure_fin:"23:59", tarif:"gratuit", prix:"", adresse:"Musées de Tours et alentours", description:"Le 17 mai, les musées d'Indre-et-Loire ouvrent gratuitement leurs portes pour la Nuit des Musées. Visites nocturnes, animations spéciales et découvertes insolites dans les collections. Une occasion unique de voir les musées sous un autre angle.", public:"tout_public" },
+  { id:5, titre:"Fête de la Musique — Tours", type:"Concert", dept:"37", ville:"Tours", date:"2026-06-21", heure_debut:"17:00", heure_fin:"23:59", tarif:"gratuit", prix:"", adresse:"Centre-ville et quartiers de Tours", description:"Le 21 juin, la Fête de la Musique envahit les rues de Tours et de toute l'Indre-et-Loire. Scènes gratuites dans les quartiers, concerts dans les bars et sur les places publiques — tous styles confondus, toute la nuit.", public:"tout_public" },
+  { id:6, titre:"Chinon en Jazz", type:"Concert", dept:"37", ville:"Chinon", date:"2026-06-05", heure_debut:"18:00", heure_fin:"23:00", tarif:"gratuit", prix:"", adresse:"Plusieurs lieux de Chinon", description:"Le festival Chinon en Jazz revient du 5 au 7 juin 2026 dans plusieurs lieux emblématiques de la ville. Concerts gratuits en plein air, dans les caves et sur les places historiques. Une atmosphère unique entre patrimoine et musique.", public:"tout_public" },
+  { id:7, titre:"Fête des Roses au Château du Rivau", type:"Fête locale", dept:"37", ville:"Lémeré", date:"2026-06-06", heure_debut:"10:00", heure_fin:"18:00", tarif:"payant", prix:"Voir billetterie", adresse:"Château du Rivau, Lémeré", description:"Les 6 et 7 juin, le Château du Rivau propose un week-end de rêve autour de sa collection de roses parfumées labellisée. Jardin exceptionnel, animations, producteurs locaux. Un moment enchanteur entre Chinon et l'Anjou.", public:"tout_public" },
+  { id:8, titre:"Festival Avoine Zone Groove", type:"Concert", dept:"37", ville:"Avoine", date:"2026-07-03", heure_debut:"17:00", heure_fin:"23:59", tarif:"payant", prix:"Voir billetterie", adresse:"Rue Georges Joubert, Avoine", description:"Le Festival Avoine Zone Groove revient du 3 au 5 juillet 2026 pour trois soirées musicales exceptionnelles à Avoine, près de Chinon. Organisé par la Mairie d'Avoine, cet événement populaire rassemble des artistes nationaux dans une ambiance conviviale et festive.", public:"tout_public" },
+  { id:9, titre:"Journées du Patrimoine — Indre-et-Loire", type:"Exposition", dept:"37", ville:"Chinon", date:"2026-09-19", heure_debut:"10:00", heure_fin:"18:00", tarif:"gratuit", prix:"", adresse:"Sites historiques du département", description:"Les 19 et 20 septembre, les Journées du Patrimoine ouvrent les portes de lieux habituellement fermés au public en Indre-et-Loire. Château de Chinon, manoirs, ateliers d'artisans, édifices publics — deux jours de découverte gratuite du patrimoine local.", public:"tout_public" },
+  // ANGERS (49)
+  { id:10, titre:"Festival d'Anjou 2026", type:"Concert", dept:"49", ville:"Angers", date:"2026-06-01", heure_debut:"20:00", heure_fin:"23:00", tarif:"payant", prix:"Voir billetterie", adresse:"Château du Plessis-Macé et autres lieux", description:"La 76e édition du Festival d'Anjou se tient du 1er au 26 juin dans 5 lieux de prestige : le château du Plessis-Macé, le Dôme de Saumur, Bouvet Ladubay, le Grand-Théâtre et le Quai à Angers. Au programme : Josiane Balasko, Fabrice Luchini, Vincent Dedienne. Le 2e plus grand festival de théâtre de France.", public:"adultes" },
+  { id:11, titre:"Les Accroche-Cœurs", type:"Concert", dept:"49", ville:"Angers", date:"2026-09-11", heure_debut:"14:00", heure_fin:"23:00", tarif:"gratuit", prix:"", adresse:"Centre-ville d'Angers", description:"Les Accroche-Cœurs envahissent Angers pour un festival de rue gratuit et spectaculaire en septembre. Acrobates, danseurs, musiciens et performeurs du monde entier investissent les places et ruelles du centre historique pendant trois jours.", public:"tout_public" },
+  { id:12, titre:"Festival Boule de Gomme", type:"Fête locale", dept:"49", ville:"Angers", date:"2026-02-11", heure_debut:"10:00", heure_fin:"19:00", tarif:"gratuit", prix:"Majoritairement gratuit", adresse:"Angers", description:"Le Festival Boule de Gomme, dédié au jeune public, se tient à Angers du 11 au 18 février 2026. Spectacles, ateliers, animations — une semaine de culture accessible aux enfants et aux familles dans de nombreux lieux de la ville.", public:"tout_public" },
+  { id:13, titre:"Anjou Vélo Vintage", type:"Sport", dept:"49", ville:"Saumur", date:"2026-06-27", heure_debut:"09:00", heure_fin:"18:00", tarif:"payant", prix:"Voir inscription", adresse:"Place de la Bilange, Saumur", description:"Anjou Vélo Vintage revient les 27, 28 et 29 juin 2026 à Saumur. 10 000 participants attendus pour cette randonnée festive dans les vignes du Saumurois. Vélos anciens, tenues rétro obligatoires, ambiance décalée et conviviale. L'un des événements vélo les plus festifs de France.", public:"tout_public" },
+  { id:14, titre:"Journée Rétrogaming", type:"Fête locale", dept:"49", ville:"Saumur", date:"2026-02-14", heure_debut:"10:00", heure_fin:"18:00", tarif:"gratuit", prix:"", adresse:"Saumur", description:"Le 14 février 2026, Saumur accueille une Journée Rétrogaming organisée par l'office de tourisme. Consoles vintage, jeux d'arcade, animations pour les amateurs de jeux vidéo des années 80-90. Entrée gratuite, accessible à tous.", public:"tout_public" },
+  { id:15, titre:"Escape Game au Musée de Fontevraud", type:"Exposition", dept:"49", ville:"Fontevraud", date:"2026-04-01", heure_debut:"10:00", heure_fin:"18:00", tarif:"payant", prix:"~15€", adresse:"Abbaye Royale de Fontevraud", description:"Jusqu'au 30 avril 2026, l'Abbaye de Fontevraud propose un escape game immersif dans ses galeries historiques. Une enquête captivante mêlant patrimoine médiéval et jeu d'aventure, pour petits et grands.", public:"tout_public" },
+  // POITIERS (86)
+  { id:16, titre:"Foire de Poitiers 2026", type:"Fête locale", dept:"86", ville:"Poitiers", date:"2026-05-14", heure_debut:"10:00", heure_fin:"19:00", tarif:"gratuit", prix:"", adresse:"Parc des Expositions de Poitiers", description:"La 90e édition de la Foire de Poitiers se tient du 14 au 18 mai 2026. Entrée gratuite pour cette édition. 5 jours de fête, de commerce, de rencontres, concerts, danse, dégustation. Un rendez-vous familial ancré dans la vie poitevine depuis près d'un siècle.", public:"tout_public" },
+  { id:17, titre:"Fête foraine de Poitiers", type:"Fête locale", dept:"86", ville:"Poitiers", date:"2026-05-14", heure_debut:"14:00", heure_fin:"23:00", tarif:"gratuit", prix:"Attractions payantes", adresse:"Centre-ville de Poitiers", description:"La fête foraine de Poitiers investit le centre-ville du 14 au 25 mai 2026. Entrée libre, attractions payantes. Manèges, stands gourmands, ambiance festive en plein air au cœur de la ville.", public:"tout_public" },
+  { id:18, titre:"Les Expressifs — Arts de rue", type:"Concert", dept:"86", ville:"Poitiers", date:"2026-10-01", heure_debut:"14:00", heure_fin:"22:00", tarif:"gratuit", prix:"", adresse:"Centre-ville de Poitiers", description:"Les Expressifs reviennent au centre-ville de Poitiers en octobre pour proposer des spectacles gratuits d'artistes de rue, musiciens et danseurs. Un festival accessible à tous, dans les rues et places du vieux Poitiers.", public:"tout_public" },
+  { id:19, titre:"Grande Brocante de l'Ascension", type:"Brocante", dept:"86", ville:"Poitiers", date:"2026-05-15", heure_debut:"08:00", heure_fin:"18:00", tarif:"gratuit", prix:"", adresse:"Place Charles de Gaulle, Poitiers", description:"La Grande Brocante de l'Ascension de Poitiers rassemble chaque année des centaines d'exposants place Charles de Gaulle. Meubles, objets anciens, vêtements vintage, livres — une journée de chinage incontournable en plein air.", public:"tout_public" },
+  { id:20, titre:"Fête de la Musique — Poitiers", type:"Concert", dept:"86", ville:"Poitiers", date:"2026-06-21", heure_debut:"17:00", heure_fin:"23:59", tarif:"gratuit", prix:"", adresse:"Centre-ville et quartiers de Poitiers", description:"Le 21 juin, la Fête de la Musique envahit les rues de Poitiers et de toute la Vienne. Scènes gratuites dans les quartiers, concerts dans les bars et sur les places publiques — tous styles, toute la soirée.", public:"tout_public" },
+  { id:21, titre:"Spectacle Élodie Poux", type:"Concert", dept:"37", ville:"Tours", date:"2026-02-27", heure_debut:"20:00", heure_fin:"22:30", tarif:"payant", prix:"À partir de 35€", adresse:"Palais des Congrès de Tours", description:"Élodie Poux présente son spectacle d'humour au Palais des Congrès de Tours le 27 février 2026. Une soirée de rires garantis avec l'une des humoristes les plus populaires du moment.", public:"adultes" },
+  { id:22, titre:"Concert Patrick Bruel", type:"Concert", dept:"37", ville:"Tours", date:"2026-11-08", heure_debut:"20:00", heure_fin:"23:00", tarif:"payant", prix:"Voir billetterie", adresse:"Palais des Congrès de Tours", description:"Patrick Bruel en concert au Palais des Congrès de Tours le 8 novembre 2026. Un rendez-vous incontournable pour les fans de l'artiste, dans la grande salle de spectacle tourangelle.", public:"adultes" },
+  { id:23, titre:"Printemps des Écuyers — Saumur", type:"Sport", dept:"49", ville:"Saumur", date:"2026-04-15", heure_debut:"10:00", heure_fin:"18:00", tarif:"payant", prix:"Voir billetterie", adresse:"Manège de Saumur", description:"Le Printemps des Écuyers revient à Saumur en avril 2026. Ce spectacle équestre exceptionnel met en valeur le savoir-faire du Cadre Noir et des cavaliers de la région dans un cadre historique unique.", public:"tout_public" },
+  { id:24, titre:"Concert Julien Clerc — Angers", type:"Concert", dept:"49", ville:"Angers", date:"2026-04-25", heure_debut:"20:00", heure_fin:"23:00", tarif:"payant", prix:"Voir billetterie", adresse:"Angers", description:"Julien Clerc en concert à Angers le 25 avril 2026. Une soirée musicale intime avec l'un des plus grands interprètes de la chanson française, dans un lieu emblématique de la ville.", public:"adultes" },
+];
+
+let filtreActif = 'tous';
+
+function formatDate(dateStr) {
+  const d = new Date(dateStr);
+  return d.toLocaleDateString('fr-FR', { weekday:'long', day:'numeric', month:'long' });
+}
+
+function creerCarte(e) {
+  const couleur = COULEURS[e.type] || '#8A8070';
+  const tarif = e.tarif === 'gratuit' ? 'Gratuit' : e.tarif === 'libre' ? 'Entrée libre' : e.prix;
+  const tariClass = e.tarif === 'payant' ? 'payant' : 'gratuit';
+  return `
+    <a class="carte" href="evenement.html?id=${e.id}">
+      <div class="carte-banner" style="background:${couleur}"></div>
+      <div class="carte-body">
+        <div class="carte-cat">
+          <span class="cdot" style="background:${couleur}"></span>
+          ${e.type}
+        </div>
+        <div class="carte-title">${e.titre}</div>
+        <div class="carte-meta">
+          <div class="carte-meta-row"><span class="carte-meta-icon">📅</span>${formatDate(e.date)}</div>
+          <div class="carte-meta-row"><span class="carte-meta-icon">🕐</span>${e.heure_debut}${e.heure_fin ? ' – ' + e.heure_fin : ''}</div>
+          <div class="carte-meta-row"><span class="carte-meta-icon">📍</span>${e.ville}${e.adresse ? ' · ' + e.adresse : ''}</div>
+        </div>
+      </div>
+      <div class="carte-footer">
+        <span class="carte-tarif ${tariClass}">${tarif}</span>
+        <span class="carte-dept">${e.dept}</span>
+      </div>
+    </a>
+  `;
+}
+
+function filtrer(valeur, btn) {
+  filtreActif = valeur;
+  document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  afficher();
+}
+
+function afficher() {
+  let liste = evenements;
+  if (filtreActif === 'Gratuit') {
+    liste = evenements.filter(e => e.tarif === 'gratuit');
+  } else if (filtreActif !== 'tous') {
+    liste = evenements.filter(e => e.dept === filtreActif || e.type === filtreActif);
+  }
+
+  const grille = document.getElementById('grille');
+  const count = document.getElementById('count');
+
+  if (liste.length === 0) {
+    grille.innerHTML = `
+      <div class="vide" style="grid-column:1/-1">
+        <div class="vide-icon">🔍</div>
+        <h3>Aucun événement pour ce filtre</h3>
+        <p>Essayez un autre département ou type d'événement.<br>De nouveaux événements sont ajoutés chaque semaine.</p>
+      </div>`;
+  } else {
+    grille.innerHTML = liste.map(creerCarte).join('');
+  }
+
+  count.textContent = liste.length === 1 ? '1 événement' : `${liste.length} événements`;
+}
+
+afficher();
+</script>
+</body>
+</html>
