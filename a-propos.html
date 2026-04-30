@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flâna — À propos</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root { --terre:#2C1810; --sable:#F5EDD6; --tuile:#C4602A; --mousse:#4A6741; --gris:#8A8070; --creme:#FBF7EE; }
+html { scroll-behavior:smooth; }
+body { background:var(--creme); color:var(--terre); font-family:'DM Sans',sans-serif; overflow-x:hidden; }
+
+nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:0.8rem 2rem; background:rgba(251,247,238,0.96); backdrop-filter:blur(10px); border-bottom:1px solid rgba(44,24,16,0.07); }
+.logo { font-family:'Playfair Display',serif; font-size:1.35rem; color:var(--terre); text-decoration:none; }
+.logo em { color:var(--tuile); font-style:italic; }
+.btn-nav { background:var(--tuile); color:#fff; padding:0.42rem 1rem; border-radius:99px; font-size:0.8rem; font-weight:500; text-decoration:none; transition:background .2s; }
+.btn-nav:hover { background:var(--terre); }
+
+.wrap { max-width:720px; margin:0 auto; padding:6rem 2rem 4rem; }
+
+.tag { font-size:0.65rem; letter-spacing:2.5px; text-transform:uppercase; color:var(--tuile); font-weight:500; margin-bottom:0.7rem; opacity:0; animation:up .5s ease .1s both; }
+
+h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3rem); line-height:1.1; margin-bottom:2rem; opacity:0; animation:up .6s ease .2s both; }
+h1 em { color:var(--tuile); font-style:italic; }
+
+.intro { font-size:1.1rem; line-height:1.8; color:var(--terre); font-weight:300; margin-bottom:3rem; padding-bottom:2rem; border-bottom:1px solid rgba(44,24,16,.08); opacity:0; animation:up .6s ease .3s both; }
+
+.section { margin-bottom:2.5rem; opacity:0; animation:up .6s ease .4s both; }
+.section h2 { font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:0.75rem; }
+.section p { font-size:0.95rem; line-height:1.75; color:var(--gris); font-weight:300; }
+.section p + p { margin-top:0.75rem; }
+
+.valeurs { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:2rem 0; opacity:0; animation:up .6s ease .5s both; }
+.valeur { background:#fff; border-radius:16px; padding:1.25rem; border:1px solid rgba(44,24,16,.06); }
+.valeur-icon { font-size:1.5rem; margin-bottom:0.6rem; }
+.valeur h3 { font-size:0.88rem; font-weight:500; margin-bottom:0.3rem; }
+.valeur p { font-size:0.78rem; color:var(--gris); line-height:1.55; }
+
+.cta-block { background:var(--sable); border-radius:20px; padding:2rem; text-align:center; margin-top:3rem; opacity:0; animation:up .6s ease .6s both; }
+.cta-block h2 { font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:0.6rem; }
+.cta-block p { font-size:0.9rem; color:var(--gris); margin-bottom:1.25rem; line-height:1.6; }
+.btn-p { background:var(--terre); color:var(--sable); padding:0.7rem 1.6rem; border-radius:99px; font-size:0.88rem; font-weight:500; text-decoration:none; transition:background .2s, transform .15s; display:inline-block; }
+.btn-p:hover { background:var(--tuile); transform:translateY(-2px); }
+
+footer { border-top:1px solid rgba(44,24,16,.08); padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; font-size:0.72rem; color:var(--gris); max-width:720px; margin:0 auto; }
+footer .logo { font-size:1.05rem; }
+
+@keyframes up { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+@media(max-width:600px) { .valeurs { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Fl<em>â</em>na</a>
+  <a href="organise.html" class="btn-nav">Référencer mon événement</a>
+</nav>
+
+<div class="wrap">
+  <p class="tag">Notre histoire</p>
+  <h1>Flâna, c'est quoi <em>exactement ?</em></h1>
+
+  <p class="intro">
+    Flâna est née d'un constat simple : il est trop difficile de savoir ce qui se passe près de chez soi. Les grandes plateformes ne référencent que les gros événements payants. Les petites brocantes, les marchés nocturnes, les expos discrètes, les portes ouvertes d'ateliers — tout ça passe à la trappe. Flâna existe pour changer ça, dans le Val de Loire d'abord, et ailleurs ensuite.
+  </p>
+
+  <div class="section">
+    <h2>Pourquoi ce projet ?</h2>
+    <p>En habitant la région, on réalise vite que les événements les plus intéressants sont souvent les moins visibles. Une brocante organisée par une association locale, un concert acoustique dans un café de Chinon, un marché de producteurs à Saumur le vendredi soir — ces événements existent, ils sont bien souvent gratuits, mais personne ne les trouve facilement.</p>
+    <p>On a voulu créer quelque chose de simple, d'honnête et de local. Pas un algorithme. Pas des publicités déguisées. Juste une liste d'événements vérifiés à la main, pour les gens qui cherchent à sortir autrement.</p>
+  </div>
+
+  <div class="section">
+    <h2>Pour qui ?</h2>
+    <p>Pour tout le monde — les familles qui cherchent une activité le dimanche, ceux qui ne boivent pas et en ont assez de la nuit centrée sur les bars, les curieux qui veulent découvrir leur région autrement, les nouveaux arrivants qui ne savent pas encore où aller.</p>
+    <p>Flâna couvre aujourd'hui trois départements : l'Indre-et-Loire (37), le Maine-et-Loire (49) et la Vienne (86). Et on grandit doucement, sans se précipiter.</p>
+  </div>
+
+  <div class="valeurs">
+    <div class="valeur">
+      <div class="valeur-icon">🤝</div>
+      <h3>Gratuit pour tous</h3>
+      <p>Flâna est et restera gratuit pour les utilisateurs. Toujours.</p>
+    </div>
+    <div class="valeur">
+      <div class="valeur-icon">✅</div>
+      <h3>Vérifié à la main</h3>
+      <p>Chaque événement est relu avant d'être publié. Pas d'algorithme, pas de contenu automatique.</p>
+    </div>
+    <div class="valeur">
+      <div class="valeur-icon">📍</div>
+      <h3>Vraiment local</h3>
+      <p>On couvre les événements que les grandes plateformes ignorent. Les petits, les discrets, les vrais.</p>
+    </div>
+    <div class="valeur">
+      <div class="valeur-icon">🍃</div>
+      <h3>Sans pression</h3>
+      <p>Pas de notifications agressives, pas de dark patterns. Juste une liste claire et utile.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Vous organisez un événement ?</h2>
+    <p>Si vous organisez une brocante, un marché, une exposition, un concert intimiste ou n'importe quel événement accessible dans les départements 37, 49 ou 86 — vous pouvez le référencer gratuitement sur Flâna. On examine chaque demande et on vous répond sous 48h.</p>
+  </div>
+
+  <div class="cta-block">
+    <h2>On discute ?</h2>
+    <p>Une question, une suggestion, envie de travailler ensemble ? Écrivez-nous directement.</p>
+    <a href="mailto:contact@flana.fr" class="btn-p">Nous contacter →</a>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="logo">Fl<em>â</em>na</a>
+  <div style="display:flex;gap:1.5rem;">
+    <a href="mentions-legales.html" style="color:var(--gris);text-decoration:none;">Mentions légales</a>
+    <span>© 2025 Flâna</span>
+  </div>
+</footer>
+
+</body>
+</html>
