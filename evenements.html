@@ -204,6 +204,13 @@ function creerCarte(e) {
   `;
 }
 
+function estAVenir(dateStr) {
+  const aujourd_hui = new Date();
+  aujourd_hui.setHours(0, 0, 0, 0);
+  const dateEvt = new Date(dateStr);
+  return dateEvt >= aujourd_hui;
+}
+
 function filtrer(valeur, btn) {
   filtreActif = valeur;
   document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('active'));
@@ -212,11 +219,11 @@ function filtrer(valeur, btn) {
 }
 
 function afficher() {
-  let liste = evenements;
+  let liste = evenements.filter(e => estAVenir(e.date));
   if (filtreActif === 'Gratuit') {
-    liste = evenements.filter(e => e.tarif === 'gratuit');
+    liste = liste.filter(e => e.tarif === 'gratuit');
   } else if (filtreActif !== 'tous') {
-    liste = evenements.filter(e => e.dept === filtreActif || e.type === filtreActif);
+    liste = liste.filter(e => e.dept === filtreActif || e.type === filtreActif);
   }
 
   const grille = document.getElementById('grille');
