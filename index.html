@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flâna — Sorties & événements Val de Loire</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --terre:  #2C1810;
+  --sable:  #F5EDD6;
+  --tuile:  #C4602A;
+  --mousse: #4A6741;
+  --gris:   #8A8070;
+  --creme:  #FBF7EE;
+}
+
+html { scroll-behavior:smooth; }
+body {
+  background:var(--creme);
+  color:var(--terre);
+  font-family:'DM Sans', sans-serif;
+  overflow-x:hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:0.8rem 2rem;
+  background:rgba(251,247,238,0.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(44,24,16,0.07);
+}
+.logo { font-family:'Playfair Display',serif; font-size:1.35rem; color:var(--terre); }
+.logo em { color:var(--tuile); font-style:italic; }
+.btn-nav {
+  background:var(--tuile); color:#fff;
+  padding:0.42rem 1rem; border-radius:99px;
+  font-size:0.8rem; font-weight:500; text-decoration:none;
+  transition:background .2s;
+}
+.btn-nav:hover { background:var(--terre); }
+
+/* ── HERO ── */
+.hero {
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  gap:2rem;
+  align-items:center;
+  min-height:100vh;
+  padding:5rem 2rem 2rem;
+  max-width:1100px;
+  margin:0 auto;
+}
+.hero-tag {
+  font-size:0.65rem; letter-spacing:2.5px; text-transform:uppercase;
+  color:var(--tuile); font-weight:500; margin-bottom:0.7rem;
+  opacity:0; animation:up .5s ease .1s both;
+}
+.hero h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.4rem,5.5vw,4.2rem);
+  line-height:1.07; margin-bottom:1rem;
+  opacity:0; animation:up .6s ease .2s both;
+}
+.hero h1 em { color:var(--tuile); font-style:italic; }
+.hero-sub {
+  font-size:0.92rem; color:var(--gris); line-height:1.7;
+  max-width:40ch; margin-bottom:1.4rem; font-weight:300;
+  opacity:0; animation:up .6s ease .35s both;
+}
+.hero-btns {
+  display:flex; gap:.65rem; flex-wrap:wrap;
+  opacity:0; animation:up .6s ease .45s both;
+}
+.btn-p {
+  background:var(--terre); color:var(--sable);
+  padding:.65rem 1.5rem; border-radius:99px;
+  font-size:.85rem; font-weight:500; text-decoration:none;
+  transition:background .2s, transform .15s;
+}
+.btn-p:hover { background:var(--tuile); transform:translateY(-2px); }
+.btn-o {
+  border:1.5px solid rgba(44,24,16,.18); color:var(--terre);
+  padding:.65rem 1.5rem; border-radius:99px;
+  font-size:.85rem; text-decoration:none;
+  transition:border-color .2s, color .2s;
+}
+.btn-o:hover { border-color:var(--tuile); color:var(--tuile); }
+
+/* cards flottantes */
+.hero-right {
+  display:flex; flex-direction:column; gap:.65rem;
+  opacity:0; animation:fadeIn .8s ease .55s both;
+}
+.ecard {
+  background:#fff; border-radius:14px;
+  padding:.85rem 1rem;
+  border:1px solid rgba(44,24,16,.06);
+  box-shadow:0 2px 14px rgba(44,24,16,.06);
+  transition:transform .2s;
+}
+.ecard:nth-child(even) { margin-left:1.2rem; }
+.ecard:hover { transform:translateY(-3px); }
+.ecat {
+  font-size:.62rem; letter-spacing:1px; text-transform:uppercase;
+  color:var(--gris); display:flex; align-items:center; gap:5px;
+  margin-bottom:.3rem;
+}
+.dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+.etitle { font-family:'Playfair Display',serif; font-size:.85rem; margin-bottom:.2rem; }
+.emeta { font-size:.68rem; color:var(--gris); }
+
+/* ── STRIP STATS ── */
+.strip {
+  background:var(--terre); color:var(--sable);
+  padding:.9rem 2rem;
+  display:flex; justify-content:center; gap:4rem; flex-wrap:wrap;
+}
+.stat { text-align:center; }
+.stat-n { font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--tuile); font-style:italic; }
+.stat-l { font-size:.7rem; letter-spacing:1px; text-transform:uppercase; color:rgba(245,237,214,.55); margin-top:.1rem; }
+
+/* ── SECTIONS ── */
+.wrap { max-width:1100px; margin:0 auto; padding:2.5rem 2rem; }
+.slabel {
+  font-size:.65rem; letter-spacing:2px; text-transform:uppercase;
+  color:var(--tuile); font-weight:500; margin-bottom:.5rem;
+}
+.stitle {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.4rem,2.8vw,2rem);
+  line-height:1.2; margin-bottom:1.25rem;
+}
+
+/* grille 4 col */
+.g4 { display:grid; grid-template-columns:repeat(4,1fr); gap:.9rem; }
+.pcard {
+  background:#fff; border-radius:14px;
+  padding:1.1rem; border:1px solid rgba(44,24,16,.06);
+  transition:transform .2s, box-shadow .2s;
+}
+.pcard:hover { transform:translateY(-3px); box-shadow:0 6px 20px rgba(44,24,16,.09); }
+.picon { font-size:1.35rem; margin-bottom:.6rem; }
+.pcard h3 { font-size:.82rem; font-weight:500; margin-bottom:.3rem; }
+.pcard p { font-size:.75rem; color:var(--gris); line-height:1.55; }
+
+/* steps */
+.steps { display:grid; grid-template-columns:repeat(4,1fr); gap:.9rem; margin-top:1.25rem; }
+.step-n { font-family:'Playfair Display',serif; font-size:1.8rem; font-style:italic; color:var(--tuile); line-height:1; margin-bottom:.4rem; }
+.step h3 { font-size:.82rem; font-weight:500; margin-bottom:.25rem; }
+.step p { font-size:.75rem; color:rgba(245,237,214,.55); line-height:1.55; }
+
+/* dark band */
+.dark { background:var(--terre); color:var(--sable); }
+.dark .stitle { color:#fff; }
+
+/* deps */
+.deps { display:flex; gap:.7rem; flex-wrap:wrap; margin-top:1rem; }
+.dep {
+  background:#fff; border-radius:12px;
+  padding:.7rem 1rem; border:1px solid rgba(44,24,16,.06);
+  display:flex; align-items:center; gap:.7rem; flex:1; min-width:170px;
+}
+.dep-n { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--tuile); font-weight:700; }
+.dep h4 { font-size:.82rem; font-weight:500; }
+.dep p { font-size:.68rem; color:var(--gris); }
+
+/* CTA orga */
+.cta-box {
+  background:var(--sable); border-radius:20px;
+  padding:2rem; text-align:center;
+  margin:0 2rem 2.5rem;
+  position:relative; overflow:hidden;
+}
+.cta-box::before {
+  content:'';
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse 70% 80% at 50% 50%, rgba(196,96,42,.07) 0%, transparent 70%);
+}
+.cta-box h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.3rem,2.5vw,1.9rem);
+  margin-bottom:.6rem; position:relative;
+}
+.cta-box p {
+  font-size:.88rem; color:var(--gris); max-width:42ch;
+  margin:0 auto 1.2rem; line-height:1.65; position:relative;
+}
+
+/* footer */
+footer {
+  border-top:1px solid rgba(44,24,16,.08);
+  padding:1rem 2rem;
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:.72rem; color:var(--gris);
+  max-width:1100px; margin:0 auto;
+}
+footer .logo { font-size:1.05rem; }
+
+/* animations */
+@keyframes up {
+  from { opacity:0; transform:translateY(14px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity:0; }
+  to   { opacity:1; }
+}
+
+/* responsive */
+@media(max-width:768px) {
+  .hero { grid-template-columns:1fr; min-height:auto; padding-top:5rem; }
+  .hero-right { display:none; }
+  .g4, .steps { grid-template-columns:repeat(2,1fr); }
+  .strip { gap:2rem; }
+  .cta-box { margin:0 1rem 2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Fl<em>â</em>na</div>
+  <a href="organisé.html" class="btn-nav">Référencer mon événement</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <p class="hero-tag">Val de Loire · Indre-et-Loire · Maine-et-Loire · Vienne</p>
+    <h1>Ce soir,<br>on <em>flâne</em><br>quelque part.</h1>
+    <p class="hero-sub">Les vraies sorties de votre région — brocantes, marchés nocturnes, expos discrètes — sans les grandes affiches et sans l'alcool obligatoire.</p>
+    <div class="hero-btns">
+      <a href="evenements.html" class="btn-p">Voir les événements</a>
+      <a href="organisé.html" class="btn-o">J'organise un événement</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div id="hero-cards"></div>
+  </div>
+</section>
+
+<!-- STRIP STATS -->
+<div class="strip">
+  <div class="stat"><div class="stat-n">37·49·86</div><div class="stat-l">Départements couverts</div></div>
+  <div class="stat"><div class="stat-n">Gratuit</div><div class="stat-l">Pour les utilisateurs</div></div>
+  <div class="stat"><div class="stat-n">Local</div><div class="stat-l">Événements vérifiés à la main</div></div>
+</div>
+
+<!-- POUR QUI -->
+<div class="wrap" id="evenements">
+  <p class="slabel">Pour qui ?</p>
+  <div class="stitle">Pour tous ceux qui cherchent autre chose.</div>
+  <div class="g4">
+    <a href="evenements.html?filtre=Gratuit" class="pcard" style="text-decoration:none;color:inherit;">
+      <div class="picon">🚶</div>
+      <h3>Les flâneurs du dimanche</h3>
+      <p>Pas d'idée, envie de bouger. Flâna trouve ce qui se passe près de vous ce jour-là.</p>
+      <div style="font-size:0.72rem;color:var(--tuile);margin-top:0.6rem;font-weight:500;">Voir les événements gratuits →</div>
+    </a>
+    <a href="evenements.html?filtre=Gratuit" class="pcard" style="text-decoration:none;color:inherit;">
+      <div class="picon">🍵</div>
+      <h3>Ceux qui ne boivent pas</h3>
+      <p>Des sorties chouettes sans que l'alcool soit au centre de la soirée.</p>
+      <div style="font-size:0.72rem;color:var(--tuile);margin-top:0.6rem;font-weight:500;">Voir les sorties →</div>
+    </a>
+    <a href="evenements.html?filtre=tout_public" class="pcard" style="text-decoration:none;color:inherit;">
+      <div class="picon">👨‍👩‍👧</div>
+      <h3>Les familles</h3>
+      <p>Activités accessibles, gratuites ou presque, pour tout le monde.</p>
+      <div style="font-size:0.72rem;color:var(--tuile);margin-top:0.6rem;font-weight:500;">Voir les événements familles →</div>
+    </a>
+    <a href="evenements.html" class="pcard" style="text-decoration:none;color:inherit;">
+      <div class="picon">🔍</div>
+      <h3>Les curieux locaux</h3>
+      <p>Vous habitez ici depuis des années et découvrez encore des pépites cachées.</p>
+      <div style="font-size:0.72rem;color:var(--tuile);margin-top:0.6rem;font-weight:500;">Voir tous les événements →</div>
+    </a>
+  </div>
+</div>
+
+<!-- COMMENT ÇA MARCHE -->
+<div class="dark">
+  <div class="wrap">
+    <p class="slabel">Comment ça marche</p>
+    <div class="stitle">Simple comme un dimanche matin.</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h3>Ouvrez Flâna</h3>
+        <p>Depuis votre téléphone ou ordinateur, n'importe quand.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h3>Choisissez votre coin</h3>
+        <p>Chinon, Saumur, Poitiers, ou tout autour en 37·49·86.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h3>Trouvez quoi faire</h3>
+        <p>Événements vrais, vérifiés, sans algorithme capricieux.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">4</div>
+        <h3>Allez-y</h3>
+        <p>Et revenez dire ce que c'était. La communauté grandit comme ça.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TERRITOIRE -->
+<div class="wrap">
+  <p class="slabel">Le territoire</p>
+  <div class="stitle">Trois départements, une vraie région de vie.</div>
+  <div class="deps">
+    <a href="evenements.html?filtre=37" class="dep" style="text-decoration:none;color:inherit;">
+      <div class="dep-n">37</div>
+      <div><h4>Indre-et-Loire</h4><p>Tours · Chinon · Amboise</p></div>
+      <div style="margin-left:auto;font-size:0.7rem;color:var(--tuile);">→</div>
+    </a>
+    <a href="evenements.html?filtre=49" class="dep" style="text-decoration:none;color:inherit;">
+      <div class="dep-n">49</div>
+      <div><h4>Maine-et-Loire</h4><p>Angers · Saumur · Cholet</p></div>
+      <div style="margin-left:auto;font-size:0.7rem;color:var(--tuile);">→</div>
+    </a>
+    <a href="evenements.html?filtre=86" class="dep" style="text-decoration:none;color:inherit;">
+      <div class="dep-n">86</div>
+      <div><h4>Vienne</h4><p>Poitiers · Châtellerault</p></div>
+      <div style="margin-left:auto;font-size:0.7rem;color:var(--tuile);">→</div>
+    </a>
+  </div>
+</div>
+
+<!-- CTA ORGANISATEUR -->
+<div class="cta-box" id="orga">
+  <h2>Vous organisez un événement ?</h2>
+  <p>Brocante, marché, expo, atelier, concert intimiste — si c'est accessible, il a sa place sur Flâna. Gratuitement.</p>
+  <a href="organisé.html" class="btn-p">Référencer mon événement →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">Fl<em>â</em>na</div>
+  <div>Val de Loire · 37 · 49 · 86</div>
+  <div style="display:flex;gap:1.5rem;align-items:center;">
+    <a href="a-propos.html" style="color:var(--gris);text-decoration:none;font-size:0.72rem;transition:color .2s;" onmouseover="this.style.color='#C4602A'" onmouseout="this.style.color='#8A8070'">À propos</a>
+    <a href="mentions-legales.html" style="color:var(--gris);text-decoration:none;font-size:0.72rem;transition:color .2s;" onmouseover="this.style.color='#C4602A'" onmouseout="this.style.color='#8A8070'">Mentions légales</a>
+    <span>© 2025 Flâna</span>
+  </div>
+</footer>
+
+<script>
+const COULEURS = { 'Brocante':'#4A6741','Marché':'#C4602A','Exposition':'#8A8070','Concert':'#6B9BD2','Atelier':'#B5813A','Fête locale':'#C4602A','Sport':'#3A7B8C' };
+
+const evenements = [
+  { id:1, titre:"Foire de Tours 2026", type:"Fête locale", dept:"37", ville:"Tours", date:"2026-05-01", heure_debut:"10:00", tarif:"gratuit", prix:"" },
+  { id:2, titre:"Fête foraine de Tours", type:"Fête locale", dept:"37", ville:"Tours", date:"2026-04-24", heure_debut:"14:00", tarif:"gratuit", prix:"Attractions payantes" },
+  { id:3, titre:"Aucard de Tours", type:"Concert", dept:"37", ville:"Tours", date:"2026-06-09", heure_debut:"14:00", tarif:"payant", prix:"Voir billetterie" },
+  { id:4, titre:"Nuit des Musées", type:"Exposition", dept:"37", ville:"Tours", date:"2026-05-17", heure_debut:"19:00", tarif:"gratuit", prix:"" },
+  { id:5, titre:"Fête de la Musique — Tours", type:"Concert", dept:"37", ville:"Tours", date:"2026-06-21", heure_debut:"17:00", tarif:"gratuit", prix:"" },
+  { id:6, titre:"Chinon en Jazz", type:"Concert", dept:"37", ville:"Chinon", date:"2026-06-05", heure_debut:"18:00", tarif:"gratuit", prix:"" },
+  { id:7, titre:"Fête des Roses au Château du Rivau", type:"Fête locale", dept:"37", ville:"Lémeré", date:"2026-06-06", heure_debut:"10:00", tarif:"payant", prix:"Voir billetterie" },
+  { id:8, titre:"Festival Avoine Zone Groove", type:"Concert", dept:"37", ville:"Avoine", date:"2026-07-03", heure_debut:"17:00", tarif:"payant", prix:"Voir billetterie" },
+  { id:9, titre:"Journées du Patrimoine", type:"Exposition", dept:"37", ville:"Chinon", date:"2026-09-19", heure_debut:"10:00", tarif:"gratuit", prix:"" },
+  { id:10, titre:"Festival d'Anjou 2026", type:"Concert", dept:"49", ville:"Angers", date:"2026-06-01", heure_debut:"20:00", tarif:"payant", prix:"Voir billetterie" },
+  { id:11, titre:"Les Accroche-Cœurs", type:"Concert", dept:"49", ville:"Angers", date:"2026-09-11", heure_debut:"14:00", tarif:"gratuit", prix:"" },
+  { id:12, titre:"Festival Boule de Gomme", type:"Fête locale", dept:"49", ville:"Angers", date:"2026-02-11", heure_debut:"10:00", tarif:"gratuit", prix:"" },
+  { id:13, titre:"Anjou Vélo Vintage", type:"Sport", dept:"49", ville:"Saumur", date:"2026-06-27", heure_debut:"09:00", tarif:"payant", prix:"Voir inscription" },
+  { id:14, titre:"Journée Rétrogaming", type:"Fête locale", dept:"49", ville:"Saumur", date:"2026-02-14", heure_debut:"10:00", tarif:"gratuit", prix:"" },
+  { id:15, titre:"Escape Game à Fontevraud", type:"Exposition", dept:"49", ville:"Fontevraud", date:"2026-04-01", heure_debut:"10:00", tarif:"payant", prix:"~15€" },
+  { id:16, titre:"Foire de Poitiers 2026", type:"Fête locale", dept:"86", ville:"Poitiers", date:"2026-05-14", heure_debut:"10:00", tarif:"gratuit", prix:"" },
+  { id:17, titre:"Fête foraine de Poitiers", type:"Fête locale", dept:"86", ville:"Poitiers", date:"2026-05-14", heure_debut:"14:00", tarif:"gratuit", prix:"Attractions payantes" },
+  { id:18, titre:"Les Expressifs — Arts de rue", type:"Concert", dept:"86", ville:"Poitiers", date:"2026-10-01", heure_debut:"14:00", tarif:"gratuit", prix:"" },
+  { id:19, titre:"Grande Brocante de l'Ascension", type:"Brocante", dept:"86", ville:"Poitiers", date:"2026-05-15", heure_debut:"08:00", tarif:"gratuit", prix:"" },
+  { id:20, titre:"Fête de la Musique — Poitiers", type:"Concert", dept:"86", ville:"Poitiers", date:"2026-06-21", heure_debut:"17:00", tarif:"gratuit", prix:"" },
+  { id:21, titre:"Spectacle Élodie Poux", type:"Concert", dept:"37", ville:"Tours", date:"2026-02-27", heure_debut:"20:00", tarif:"payant", prix:"À partir de 35€" },
+  { id:22, titre:"Concert Patrick Bruel", type:"Concert", dept:"37", ville:"Tours", date:"2026-11-08", heure_debut:"20:00", tarif:"payant", prix:"Voir billetterie" },
+  { id:23, titre:"Printemps des Écuyers", type:"Sport", dept:"49", ville:"Saumur", date:"2026-04-15", heure_debut:"10:00", tarif:"payant", prix:"Voir billetterie" },
+  { id:24, titre:"Concert Julien Clerc", type:"Concert", dept:"49", ville:"Angers", date:"2026-04-25", heure_debut:"20:00", tarif:"payant", prix:"Voir billetterie" },
+];
+
+function estAVenir(dateStr) {
+  const aujourd_hui = new Date();
+  aujourd_hui.setHours(0, 0, 0, 0);
+  return new Date(dateStr) >= aujourd_hui;
+}
+
+function formatDateCourte(dateStr) {
+  const d = new Date(dateStr);
+  return d.toLocaleDateString('fr-FR', { day:'numeric', month:'long' });
+}
+
+function tarifLabel(e) {
+  if (e.tarif === 'gratuit') return 'Gratuit';
+  return e.prix || 'Payant';
+}
+
+// Afficher 4 prochains événements dans les cartes hero
+const prochains = evenements
+  .filter(e => estAVenir(e.date))
+  .sort((a, b) => new Date(a.date) - new Date(b.date))
+  .slice(0, 4);
+
+const container = document.getElementById('hero-cards');
+if (container) {
+  container.style.display = 'flex';
+  container.style.flexDirection = 'column';
+  container.style.gap = '0.65rem';
+  container.style.width = '100%';
+  container.innerHTML = prochains.map((e, i) => `
+    <a class="ecard" href="evenement.html?id=${e.id}" style="text-decoration:none;color:inherit;${i % 2 === 1 ? 'margin-left:1.2rem;' : ''}">
+      <div class="ecat">
+        <span class="dot" style="background:${COULEURS[e.type] || '#8A8070'}"></span>
+        ${e.type}
+      </div>
+      <div class="etitle">${e.titre}</div>
+      <div class="emeta">${e.ville} · ${formatDateCourte(e.date)} · ${tarifLabel(e)}</div>
+    </a>
+  `).join('');
+}
+</script>
+</body>
+</html>
