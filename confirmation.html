@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flâna — Demande envoyée</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root { --terre:#2C1810; --sable:#F5EDD6; --tuile:#C4602A; --mousse:#4A6741; --gris:#8A8070; --creme:#FBF7EE; }
+body { background:var(--creme); color:var(--terre); font-family:'DM Sans',sans-serif; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:2rem; text-align:center; }
+.logo { font-family:'Playfair Display',serif; font-size:1.35rem; color:var(--terre); text-decoration:none; margin-bottom:3rem; display:block; }
+.logo em { color:var(--tuile); font-style:italic; }
+.check { width:72px; height:72px; background:#EAF3DE; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1.5rem; animation:pop .5s ease both; }
+h1 { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,3vw,2.2rem); margin-bottom:0.75rem; opacity:0; animation:up .6s ease .2s both; }
+h1 em { color:var(--tuile); font-style:italic; }
+.sub { font-size:0.95rem; color:var(--gris); line-height:1.7; max-width:44ch; margin:0 auto 2rem; font-weight:300; opacity:0; animation:up .6s ease .35s both; }
+.steps { display:flex; flex-direction:column; gap:0.75rem; max-width:400px; margin:0 auto 2.5rem; opacity:0; animation:up .6s ease .5s both; }
+.step { display:flex; align-items:center; gap:1rem; background:#fff; border-radius:12px; padding:0.9rem 1.1rem; border:1px solid rgba(44,24,16,.06); text-align:left; }
+.step-num { width:28px; height:28px; border-radius:50%; background:var(--sable); display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:500; color:var(--tuile); flex-shrink:0; }
+.step p { font-size:0.82rem; color:var(--gris); line-height:1.5; }
+.step strong { color:var(--terre); font-weight:500; }
+.actions { display:flex; gap:0.75rem; flex-wrap:wrap; justify-content:center; opacity:0; animation:up .6s ease .65s both; }
+.btn-p { background:var(--terre); color:var(--sable); padding:0.7rem 1.6rem; border-radius:99px; font-size:0.88rem; font-weight:500; text-decoration:none; transition:background .2s, transform .15s; }
+.btn-p:hover { background:var(--tuile); transform:translateY(-2px); }
+.btn-o { border:1.5px solid rgba(44,24,16,.18); color:var(--terre); padding:0.7rem 1.6rem; border-radius:99px; font-size:0.88rem; text-decoration:none; transition:border-color .2s, color .2s; }
+.btn-o:hover { border-color:var(--tuile); color:var(--tuile); }
+@keyframes up { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+@keyframes pop { from { transform:scale(0.5); opacity:0; } to { transform:scale(1); opacity:1; } }
+</style>
+</head>
+<body>
+  <a href="index.html" class="logo">Fl<em>â</em>na</a>
+
+  <div class="check">🎉</div>
+  <h1>Demande <em>envoyée !</em></h1>
+  <p class="sub">Merci de faire confiance à Flâna pour votre événement. On s'occupe de tout — voici ce qui se passe maintenant.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <p><strong>On vérifie votre demande</strong><br>Chaque événement est relu à la main avant publication.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <p><strong>On vous recontacte sous 48h</strong><br>Par email, pour confirmer la mise en ligne ou vous poser des questions.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <p><strong>Votre événement est en ligne</strong><br>Visible par tous les utilisateurs de Flâna dans votre département.</p>
+    </div>
+  </div>
+
+  <div class="actions">
+    <a href="evenements.html" class="btn-p">Voir les événements</a>
+    <a href="index.html" class="btn-o">Retour à l'accueil</a>
+  </div>
+</body>
+</html>
