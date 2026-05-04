@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flâna — Page introuvable</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root { --terre:#2C1810; --sable:#F5EDD6; --tuile:#C4602A; --gris:#8A8070; --creme:#FBF7EE; }
+body { background:var(--creme); color:var(--terre); font-family:'DM Sans',sans-serif; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:2rem; text-align:center; }
+.logo { font-family:'Playfair Display',serif; font-size:1.35rem; color:var(--terre); text-decoration:none; margin-bottom:3rem; display:block; }
+.logo em { color:var(--tuile); font-style:italic; }
+.numero { font-family:'Playfair Display',serif; font-size:7rem; font-style:italic; color:var(--sable); line-height:1; margin-bottom:1rem; }
+h1 { font-family:'Playfair Display',serif; font-size:1.8rem; margin-bottom:0.75rem; }
+p { font-size:0.95rem; color:var(--gris); line-height:1.7; max-width:40ch; margin:0 auto 2rem; font-weight:300; }
+.actions { display:flex; gap:0.75rem; flex-wrap:wrap; justify-content:center; }
+.btn-p { background:var(--terre); color:var(--sable); padding:0.7rem 1.6rem; border-radius:99px; font-size:0.88rem; font-weight:500; text-decoration:none; transition:background .2s, transform .15s; }
+.btn-p:hover { background:var(--tuile); transform:translateY(-2px); }
+.btn-o { border:1.5px solid rgba(44,24,16,.18); color:var(--terre); padding:0.7rem 1.6rem; border-radius:99px; font-size:0.88rem; text-decoration:none; transition:border-color .2s, color .2s; }
+.btn-o:hover { border-color:var(--tuile); color:var(--tuile); }
+</style>
+</head>
+<body>
+  <a href="index.html" class="logo">Fl<em>â</em>na</a>
+  <div class="numero">404</div>
+  <h1>On s'est perdus en chemin.</h1>
+  <p>Cette page n'existe pas — ou alors elle a flâné un peu trop loin. Pas de panique, les événements sont toujours là.</p>
+  <div class="actions">
+    <a href="index.html" class="btn-p">← Retour à l'accueil</a>
+    <a href="evenements.html" class="btn-o">Voir les événements</a>
+  </div>
+</body>
+</html>
