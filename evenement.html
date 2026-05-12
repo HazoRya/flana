@@ -184,7 +184,8 @@ function showToast() {
     <p class="description">${evt.description}</p>
 
     <div class="actions">
-      <a href="https://www.google.com/maps/search/${encodeURIComponent(evt.city + ' ' + (evt.address || ''))}" target="_blank" class="btn-primary">📍 Voir sur la carte</a>
+      ${evt.website ? `<a href="${evt.website}" target="_blank" rel="noopener" class="btn-primary">🌐 Site officiel</a>` : ''}
+      <a href="https://www.google.com/maps/search/${encodeURIComponent(evt.city + ' ' + (evt.address || ''))}" target="_blank" class="btn-outline">📍 Voir sur la carte</a>
       <button class="btn-outline" onclick="partager()">🔗 Partager</button>
       <a href="evenements.html" class="btn-outline">← Tous les événements</a>
     </div>
