@@ -12,7 +12,8 @@
     "isAssociation": false,
     "organizer": "Foire de Tours",
     "imageUrl": "",
-    "description": "La Foire de Tours 2026 se tient du 1er au 10 mai. Entrée gratuite, parking gratuit. Village gastronomique ouvert jusqu'à minuit. Concerts gratuits tous les soirs, environ 400 exposants et près de 400 000 visiteurs attendus."
+    "description": "La Foire de Tours 2026 se tient du 1er au 10 mai. Entrée gratuite, parking gratuit. Village gastronomique ouvert jusqu'à minuit. Concerts gratuits tous les soirs, environ 400 exposants et près de 400 000 visiteurs attendus.",
+    "website": "https://www.lafoiredetours.com"
   },
   {
     "id": "event-002",
@@ -27,7 +28,8 @@
     "isAssociation": true,
     "organizer": "Association American Touraine Festival",
     "imageUrl": "",
-    "description": "Les 9 et 10 mai, l'American Touraine Festival revient à Azay-sur-Cher. Concerts gratuits : The Twangy & Tom Trio, Rep'Nshout, Barrence Whitfield... Rock, blues, country en plein air."
+    "description": "Les 9 et 10 mai, l'American Touraine Festival revient à Azay-sur-Cher. Concerts gratuits : The Twangy & Tom Trio, Rep'Nshout, Barrence Whitfield... Rock, blues, country en plein air.",
+    "website": "https://www.tourainevaldeloire.com/agenda/"
   },
   {
     "id": "event-003",
@@ -42,7 +44,8 @@
     "isAssociation": false,
     "organizer": "Musées de Tours",
     "imageUrl": "",
-    "description": "Le 17 mai, les musées d'Indre-et-Loire ouvrent gratuitement leurs portes. Visites nocturnes, animations spéciales et découvertes insolites dans les collections."
+    "description": "Le 17 mai, les musées d'Indre-et-Loire ouvrent gratuitement leurs portes. Visites nocturnes, animations spéciales et découvertes insolites dans les collections.",
+    "website": "https://nuitdesmusees.culture.gouv.fr"
   },
   {
     "id": "event-004",
@@ -57,7 +60,8 @@
     "isAssociation": true,
     "organizer": "Association des brocanteurs chinonais",
     "imageUrl": "",
-    "description": "Les brocantes dominicales de Chinon rythment les week-ends de printemps. Particuliers et chineurs place Jeanne d'Arc pour vendre et chiner mobilier, vaisselle, livres et objets."
+    "description": "Les brocantes dominicales de Chinon rythment les week-ends de printemps. Particuliers et chineurs place Jeanne d'Arc pour vendre et chiner mobilier, vaisselle, livres et objets.",
+    "website": ""
   },
   {
     "id": "event-005",
@@ -72,7 +76,8 @@
     "isAssociation": true,
     "organizer": "Association La Poule à Facettes",
     "imageUrl": "",
-    "description": "Les 23 et 24 mai, le festival La Poule à Facettes investit Cormery. Musiques éclectiques dans un cadre médiéval exceptionnel. Programmation à venir."
+    "description": "Les 23 et 24 mai, le festival La Poule à Facettes investit Cormery. Musiques éclectiques dans un cadre médiéval exceptionnel. Programmation à venir.",
+    "website": "https://www.tourainevaldeloire.com/agenda/"
   },
   {
     "id": "event-006",
@@ -87,7 +92,8 @@
     "isAssociation": false,
     "organizer": "Château du Rivau",
     "imageUrl": "",
-    "description": "Les 6 et 7 juin, le Château du Rivau propose un week-end autour de sa collection de roses parfumées. Jardin exceptionnel, animations, producteurs locaux entre Chinon et l'Anjou."
+    "description": "Les 6 et 7 juin, le Château du Rivau propose un week-end autour de sa collection de roses parfumées. Jardin exceptionnel, animations, producteurs locaux entre Chinon et l'Anjou.",
+    "website": "https://www.chateaudurivau.com"
   },
   {
     "id": "event-007",
@@ -102,7 +108,8 @@
     "isAssociation": true,
     "organizer": "Association Jazz en Chinonais",
     "imageUrl": "",
-    "description": "Du 5 au 7 juin, le festival Chinon en Jazz revient dans plusieurs lieux emblématiques de la ville. Concerts gratuits en plein air, dans les caves et sur les places historiques."
+    "description": "Du 5 au 7 juin, le festival Chinon en Jazz revient dans plusieurs lieux emblématiques de la ville. Concerts gratuits en plein air, dans les caves et sur les places historiques.",
+    "website": "https://www.chinonenjazz.com"
   },
   {
     "id": "event-008",
@@ -117,7 +124,8 @@
     "isAssociation": true,
     "organizer": "Association Kampagn'Arts",
     "imageUrl": "",
-    "description": "Les 26 et 27 juin, le festival Kampagn'Arts accueille Toukan Toukan, Fatals Picards, Cali, La Phaze, Dub Inc, Guiz... Un rendez-vous festif et populaire en pleine campagne tourangelle."
+    "description": "Les 26 et 27 juin, le festival Kampagn'Arts accueille Toukan Toukan, Fatals Picards, Cali, La Phaze, Dub Inc, Guiz... Un rendez-vous festif et populaire en pleine campagne tourangelle.",
+    "website": "https://www.kampagnarts.fr"
   },
   {
     "id": "event-009",
@@ -132,7 +140,8 @@
     "isAssociation": true,
     "organizer": "Association Itinéraires Bis",
     "imageUrl": "",
-    "description": "Les 19 et 20 juin, Itinéraires Bis mêle arts de la rue et concerts à La Riche. Entrée gratuite, ambiance festive et éclectique à deux pas de Tours."
+    "description": "Les 19 et 20 juin, Itinéraires Bis mêle arts de la rue et concerts à La Riche. Entrée gratuite, ambiance festive et éclectique à deux pas de Tours.",
+    "website": "https://www.tourainevaldeloire.com/agenda/"
   },
   {
     "id": "event-010",
@@ -147,7 +156,8 @@
     "isAssociation": true,
     "organizer": "Association Aucard",
     "imageUrl": "",
-    "description": "Du 9 au 13 juin, l'Aucard de Tours revient au Parc de la Gloriette. Au programme : Medine, Spicy Box, Dune Rats, Dawa Hifi... Rock, électro, hip-hop, ska en bord de Loire."
+    "description": "Du 9 au 13 juin, l'Aucard de Tours revient au Parc de la Gloriette. Au programme : Medine, Spicy Box, Dune Rats, Dawa Hifi... Rock, électro, hip-hop, ska en bord de Loire.",
+    "website": "https://www.aucard-de-tours.fr"
   },
   {
     "id": "event-011",
@@ -162,7 +172,8 @@
     "isAssociation": true,
     "organizer": "Ville de Tours & associations",
     "imageUrl": "",
-    "description": "Le 21 juin, la Fête de la Musique envahit les rues de Tours. Scènes gratuites dans les quartiers, concerts dans les bars et sur les places publiques — tous styles, toute la soirée."
+    "description": "Le 21 juin, la Fête de la Musique envahit les rues de Tours. Scènes gratuites dans les quartiers, concerts dans les bars et sur les places publiques — tous styles, toute la soirée.",
+    "website": ""
   },
   {
     "id": "event-012",
@@ -177,7 +188,8 @@
     "isAssociation": true,
     "organizer": "Association Le Solstice",
     "imageUrl": "",
-    "description": "Du 25 au 27 juin, le festival Le Solstice anime Beaulieu-lès-Loches. Entrée gratuite, programmation musicale éclectique dans un cadre patrimonial exceptionnel."
+    "description": "Du 25 au 27 juin, le festival Le Solstice anime Beaulieu-lès-Loches. Entrée gratuite, programmation musicale éclectique dans un cadre patrimonial exceptionnel.",
+    "website": "https://www.tourainevaldeloire.com/agenda/"
   },
   {
     "id": "event-013",
@@ -192,7 +204,8 @@
     "isAssociation": true,
     "organizer": "Association Les Horizons",
     "imageUrl": "",
-    "description": "Les 26 et 27 juin, le festival Les Horizons revient à Saint-Avertin. Entrée gratuite, concerts en plein air dans un cadre convivial."
+    "description": "Les 26 et 27 juin, le festival Les Horizons revient à Saint-Avertin. Entrée gratuite, concerts en plein air dans un cadre convivial.",
+    "website": "https://www.tourainevaldeloire.com/agenda/"
   },
   {
     "id": "event-014",
@@ -207,7 +220,8 @@
     "isAssociation": false,
     "organizer": "Mairie d'Avoine",
     "imageUrl": "",
-    "description": "Du 3 au 5 juillet, Avoine Zone Groove accueille Louane, Claudio Capéo, Magic System, La Chimba, Hypaton... Trois soirées musicales exceptionnelles près de Chinon."
+    "description": "Du 3 au 5 juillet, Avoine Zone Groove accueille Louane, Claudio Capéo, Magic System, La Chimba, Hypaton... Trois soirées musicales exceptionnelles près de Chinon.",
+    "website": "https://www.avoinezonegroove.fr"
   },
   {
     "id": "event-015",
@@ -222,7 +236,8 @@
     "isAssociation": true,
     "organizer": "Association Mémoire de Chinon",
     "imageUrl": "",
-    "description": "Le marché médiéval de Chinon replonge la ville dans le Moyen Âge. Artisans en costume d'époque, jongleurs et troubadours dans l'un des plus beaux centres médiévaux de la Loire."
+    "description": "Le marché médiéval de Chinon replonge la ville dans le Moyen Âge. Artisans en costume d'époque, jongleurs et troubadours dans l'un des plus beaux centres médiévaux de la Loire.",
+    "website": "https://www.chinon.fr"
   },
   {
     "id": "event-016",
@@ -237,7 +252,8 @@
     "isAssociation": false,
     "organizer": "Vignerons d'Anjou-Saumur",
     "imageUrl": "",
-    "description": "Les 16 et 17 mai, la 65ème Fête des Vins d'Anjou-Saumur met à l'honneur les vins moelleux. Dégustations, animations, rencontres avec les vignerons de la région."
+    "description": "Les 16 et 17 mai, la 65ème Fête des Vins d'Anjou-Saumur met à l'honneur les vins moelleux. Dégustations, animations, rencontres avec les vignerons de la région.",
+    "website": "https://www.vinsanjou.fr"
   },
   {
     "id": "event-017",
@@ -252,7 +268,8 @@
     "isAssociation": true,
     "organizer": "Association des chineurs angevins",
     "imageUrl": "",
-    "description": "Début juin, le grand vide-greniers de la place Ney réunit plus de 450 exposants. Le plus grand vide-greniers d'Angers, incontournable pour les amateurs de bonnes affaires."
+    "description": "Début juin, le grand vide-greniers de la place Ney réunit plus de 450 exposants. Le plus grand vide-greniers d'Angers, incontournable pour les amateurs de bonnes affaires.",
+    "website": ""
   },
   {
     "id": "event-018",
@@ -267,7 +284,8 @@
     "isAssociation": true,
     "organizer": "Association MINIMAXXX",
     "imageUrl": "",
-    "description": "Le 6 juin en centre-ville d'Angers : grande vente de fripes, vinyles et Street Art. Plus de 10 000 vêtements de 1€ à 10€, DJ sets, ambiance festive sur 250m²."
+    "description": "Le 6 juin en centre-ville d'Angers : grande vente de fripes, vinyles et Street Art. Plus de 10 000 vêtements de 1€ à 10€, DJ sets, ambiance festive sur 250m².",
+    "website": ""
   },
   {
     "id": "event-019",
@@ -282,7 +300,8 @@
     "isAssociation": false,
     "organizer": "Festival d'Anjou",
     "imageUrl": "",
-    "description": "Du 1er au 26 juin, la 76e édition du Festival d'Anjou dans 5 lieux de prestige. Josiane Balasko, Fabrice Luchini, Vincent Dedienne au programme. Le 2e plus grand festival de théâtre de France."
+    "description": "Du 1er au 26 juin, la 76e édition du Festival d'Anjou dans 5 lieux de prestige. Josiane Balasko, Fabrice Luchini, Vincent Dedienne au programme. Le 2e plus grand festival de théâtre de France.",
+    "website": "https://www.festivalanjou.com"
   },
   {
     "id": "event-020",
@@ -297,7 +316,8 @@
     "isAssociation": true,
     "organizer": "Association des cavistes de Loire",
     "imageUrl": "",
-    "description": "Du 13 au 20 juin, cavistes, restaurants et bars à vin célèbrent le chenin de Loire. Dégustations et animations dans toute la ville pour découvrir ce cépage emblématique."
+    "description": "Du 13 au 20 juin, cavistes, restaurants et bars à vin célèbrent le chenin de Loire. Dégustations et animations dans toute la ville pour découvrir ce cépage emblématique.",
+    "website": ""
   },
   {
     "id": "event-021",
@@ -312,7 +332,8 @@
     "isAssociation": true,
     "organizer": "Ville d'Angers & associations",
     "imageUrl": "",
-    "description": "Le 21 juin, la Fête de la Musique envahit les rues d'Angers. Concerts gratuits dans les bars, places et quartiers de la ville — tous styles, toute la soirée."
+    "description": "Le 21 juin, la Fête de la Musique envahit les rues d'Angers. Concerts gratuits dans les bars, places et quartiers de la ville — tous styles, toute la soirée.",
+    "website": ""
   },
   {
     "id": "event-022",
@@ -327,7 +348,8 @@
     "isAssociation": true,
     "organizer": "Association Anjou Vélo Vintage",
     "imageUrl": "",
-    "description": "Les 27, 28 et 29 juin, Anjou Vélo Vintage rassemble des milliers de cyclistes déguisés dans les vignes du Saumurois. Vélos anciens, tenues rétro obligatoires, 10 000 participants attendus."
+    "description": "Les 27, 28 et 29 juin, Anjou Vélo Vintage rassemble des milliers de cyclistes déguisés dans les vignes du Saumurois. Vélos anciens, tenues rétro obligatoires, 10 000 participants attendus.",
+    "website": "https://www.anjouvelovintage.fr"
   },
   {
     "id": "event-023",
@@ -342,7 +364,8 @@
     "isAssociation": true,
     "organizer": "Association des brocanteurs saumurois",
     "imageUrl": "",
-    "description": "Chaque 4ème dimanche du mois, la Brocante du Théâtre s'installe place Bilange à Saumur. Professionnels et particuliers, bonnes affaires garanties au bord de la Loire."
+    "description": "Chaque 4ème dimanche du mois, la Brocante du Théâtre s'installe place Bilange à Saumur. Professionnels et particuliers, bonnes affaires garanties au bord de la Loire.",
+    "website": ""
   },
   {
     "id": "event-024",
@@ -357,7 +380,8 @@
     "isAssociation": false,
     "organizer": "Organisateurs de Montsoreau",
     "imageUrl": "",
-    "description": "Chaque deuxième dimanche du mois, 80 professionnels de la brocante et des antiquités se retrouvent à Montsoreau au bord de la Loire. Un événement immanquable pour les chineurs."
+    "description": "Chaque deuxième dimanche du mois, 80 professionnels de la brocante et des antiquités se retrouvent à Montsoreau au bord de la Loire. Un événement immanquable pour les chineurs.",
+    "website": ""
   },
   {
     "id": "event-025",
@@ -372,7 +396,8 @@
     "isAssociation": false,
     "organizer": "Ville d'Angers",
     "imageUrl": "",
-    "description": "Chaque deuxième dimanche du mois, le grand déballage d'Angers s'installe avenue Montaigne. Particuliers et professionnels pour une matinée de chinage en plein air."
+    "description": "Chaque deuxième dimanche du mois, le grand déballage d'Angers s'installe avenue Montaigne. Particuliers et professionnels pour une matinée de chinage en plein air.",
+    "website": ""
   },
   {
     "id": "event-026",
@@ -387,7 +412,8 @@
     "isAssociation": true,
     "organizer": "Ville de Saumur & associations",
     "imageUrl": "",
-    "description": "Le 21 juin, la Fête de la Musique envahit les rues de Saumur. Concerts gratuits dans les bars, cafés et places de la ville — ambiance festive au pied du château."
+    "description": "Le 21 juin, la Fête de la Musique envahit les rues de Saumur. Concerts gratuits dans les bars, cafés et places de la ville — ambiance festive au pied du château.",
+    "website": ""
   },
   {
     "id": "event-027",
@@ -402,7 +428,8 @@
     "isAssociation": true,
     "organizer": "Association des festivités d'Antan",
     "imageUrl": "",
-    "description": "Le 14 juin au Château du Pineau, les Festivités d'Antan recréent l'ambiance des années 1900. Parc arboré avec un Cèdre du Liban de 400 ans, animations, costumes d'époque. Entrée gratuite."
+    "description": "Le 14 juin au Château du Pineau, les Festivités d'Antan recréent l'ambiance des années 1900. Parc arboré avec un Cèdre du Liban de 400 ans, animations, costumes d'époque. Entrée gratuite.",
+    "website": ""
   },
   {
     "id": "event-028",
@@ -417,7 +444,8 @@
     "isAssociation": false,
     "organizer": "Ville de Poitiers",
     "imageUrl": "",
-    "description": "Du 20 au 25 mai, la Foire de Poitiers revient pour 6 jours. Thème 2026 : « Nos années rétro ». Village années 60, près de 200 exposants, animations gratuites. Entrée gratuite cette année."
+    "description": "Du 20 au 25 mai, la Foire de Poitiers revient pour 6 jours. Thème 2026 : « Nos années rétro ». Village années 60, près de 200 exposants, animations gratuites. Entrée gratuite cette année.",
+    "website": "https://www.poitiers.fr"
   },
   {
     "id": "event-029",
@@ -432,7 +460,8 @@
     "isAssociation": true,
     "organizer": "Comité de Quartier de St Eloi",
     "imageUrl": "",
-    "description": "Le 7 juin, le Comité de Quartier de St Eloi organise son vide-grenier annuel à Poitiers. Ambiance conviviale, bonnes affaires, entrée gratuite."
+    "description": "Le 7 juin, le Comité de Quartier de St Eloi organise son vide-grenier annuel à Poitiers. Ambiance conviviale, bonnes affaires, entrée gratuite.",
+    "website": ""
   },
   {
     "id": "event-030",
@@ -447,7 +476,8 @@
     "isAssociation": false,
     "organizer": "Ville de Poitiers",
     "imageUrl": "",
-    "description": "Poitiers Plage revient Square de la République : 300m² de sable fin en plein centre-ville, concerts, DJ sets, transats, cocktails, streetfood et tournois de beach tennis. Entrée gratuite."
+    "description": "Poitiers Plage revient Square de la République : 300m² de sable fin en plein centre-ville, concerts, DJ sets, transats, cocktails, streetfood et tournois de beach tennis. Entrée gratuite.",
+    "website": "https://www.poitiers.fr"
   },
   {
     "id": "event-031",
@@ -462,7 +492,8 @@
     "isAssociation": true,
     "organizer": "Ville de Poitiers & associations",
     "imageUrl": "",
-    "description": "Le 21 juin, la Fête de la Musique envahit les rues de Poitiers. Concerts gratuits dans les bars, places et quartiers — tous styles, toute la soirée."
+    "description": "Le 21 juin, la Fête de la Musique envahit les rues de Poitiers. Concerts gratuits dans les bars, places et quartiers — tous styles, toute la soirée.",
+    "website": ""
   },
   {
     "id": "event-032",
@@ -477,7 +508,8 @@
     "isAssociation": true,
     "organizer": "Association Bordel Organisé",
     "imageUrl": "",
-    "description": "Le festival rock Bordel Organisé réunit Elmer Food Beat, Les Fatals Picards, Les Tambours du Bronx et Poésie Zéro. Une soirée rock explosive dans la Vienne."
+    "description": "Le festival rock Bordel Organisé réunit Elmer Food Beat, Les Fatals Picards, Les Tambours du Bronx et Poésie Zéro. Une soirée rock explosive dans la Vienne.",
+    "website": "https://www.tourainevaldeloire.com/agenda/"
   },
   {
     "id": "event-033",
@@ -492,7 +524,8 @@
     "isAssociation": true,
     "organizer": "Association des Soirées Lyriques",
     "imageUrl": "",
-    "description": "Du 23 au 25 juillet, les Soirées Lyriques de Sanxay se déroulent dans les ruines romaines de l'amphithéâtre de Sanxay. Un cadre exceptionnel pour un festival lyrique de renommée nationale."
+    "description": "Du 23 au 25 juillet, les Soirées Lyriques de Sanxay se déroulent dans les ruines romaines de l'amphithéâtre de Sanxay. Un cadre exceptionnel pour un festival lyrique de renommée nationale.",
+    "website": "https://www.soireeslyriques.com"
   },
   {
     "id": "event-034",
@@ -507,7 +540,8 @@
     "isAssociation": true,
     "organizer": "Association Jazz à Châtellerault",
     "imageUrl": "",
-    "description": "Chaque année, le festival de Jazz de Châtellerault accueille les plus grands noms de la planète jazz. Un rendez-vous incontournable pour les amateurs de musique dans la Vienne."
+    "description": "Chaque année, le festival de Jazz de Châtellerault accueille les plus grands noms de la planète jazz. Un rendez-vous incontournable pour les amateurs de musique dans la Vienne.",
+    "website": "https://www.chatellerault.fr"
   },
   {
     "id": "event-035",
@@ -522,7 +556,8 @@
     "isAssociation": true,
     "organizer": "Association des vignerons du Lion",
     "imageUrl": "",
-    "description": "La Fête de la Musique du 26 juin au Lion d'Angers avec l'École de Musique de l'Anjou bleu. Concerts, dégustations de vins locaux, ambiance conviviale en bord de Mayenne."
+    "description": "La Fête de la Musique du 26 juin au Lion d'Angers avec l'École de Musique de l'Anjou bleu. Concerts, dégustations de vins locaux, ambiance conviviale en bord de Mayenne.",
+    "website": ""
   },
   {
     "id": "event-036",
@@ -537,7 +572,8 @@
     "isAssociation": true,
     "organizer": "Association La Grande Tablée",
     "imageUrl": "",
-    "description": "La Grande Tablée est un festival des arts de la rue avec les compagnies 1 Watt, Les Barjes et Mimo Tuga. Spectacles, banquet et bal trad' — le tout gratuitement en Indre-et-Loire."
+    "description": "La Grande Tablée est un festival des arts de la rue avec les compagnies 1 Watt, Les Barjes et Mimo Tuga. Spectacles, banquet et bal trad' — le tout gratuitement en Indre-et-Loire.",
+    "website": ""
   },
   {
     "id": "event-037",
@@ -552,7 +588,8 @@
     "isAssociation": true,
     "organizer": "Association des chineurs tourangeaux",
     "imageUrl": "",
-    "description": "Chaque mois, la brocante du Vieux-Tours s'installe dans les ruelles pavées du centre historique. Une occasion de chiner parmi des dizaines d'exposants dans un cadre médiéval unique."
+    "description": "Chaque mois, la brocante du Vieux-Tours s'installe dans les ruelles pavées du centre historique. Une occasion de chiner parmi des dizaines d'exposants dans un cadre médiéval unique.",
+    "website": ""
   },
   {
     "id": "event-038",
@@ -567,7 +604,8 @@
     "isAssociation": true,
     "organizer": "Association des producteurs de Montlouis",
     "imageUrl": "",
-    "description": "Chaque vendredi soir d'été, les producteurs locaux de Montlouis-sur-Loire investissent le centre bourg. Vins, légumes, fromages, artisanat local dans une ambiance conviviale."
+    "description": "Chaque vendredi soir d'été, les producteurs locaux de Montlouis-sur-Loire investissent le centre bourg. Vins, légumes, fromages, artisanat local dans une ambiance conviviale.",
+    "website": ""
   },
   {
     "id": "event-039",
@@ -582,7 +620,8 @@
     "isAssociation": true,
     "organizer": "Association Terres du Son",
     "imageUrl": "",
-    "description": "Du 10 au 12 juillet, le festival Terres du Son revient au domaine de Candé à Monts. L'un des festivals les plus emblématiques d'Indre-et-Loire, mêlant musiques du monde, rock et électro."
+    "description": "Du 10 au 12 juillet, le festival Terres du Son revient au domaine de Candé à Monts. L'un des festivals les plus emblématiques d'Indre-et-Loire, mêlant musiques du monde, rock et électro.",
+    "website": "https://www.terresduson.com"
   },
   {
     "id": "event-040",
@@ -597,7 +636,8 @@
     "isAssociation": true,
     "organizer": "Association Au Fil du Son",
     "imageUrl": "",
-    "description": "Le festival Au Fil du Son dans la Vienne propose une programmation musicale éclectique dans des lieux patrimoniaux exceptionnels. Un festival à taille humaine, ancré dans son territoire."
+    "description": "Le festival Au Fil du Son dans la Vienne propose une programmation musicale éclectique dans des lieux patrimoniaux exceptionnels. Un festival à taille humaine, ancré dans son territoire.",
+    "website": ""
   },
   {
     "id": "event-041",
@@ -612,7 +652,8 @@
     "isAssociation": true,
     "organizer": "Association Rand'Eau Vienne",
     "imageUrl": "",
-    "description": "La 17ème édition de Rand'Eau Vienne relie Lussac-les-Châteaux à Chauvigny en canoë-kayak. Une façon unique de découvrir la rivière Vienne et ses paysages."
+    "description": "La 17ème édition de Rand'Eau Vienne relie Lussac-les-Châteaux à Chauvigny en canoë-kayak. Une façon unique de découvrir la rivière Vienne et ses paysages.",
+    "website": "https://www.randeau-vienne.fr"
   },
   {
     "id": "event-042",
@@ -627,6 +668,7 @@
     "isAssociation": true,
     "organizer": "Association des Amis de Morthemer",
     "imageUrl": "",
-    "description": "Un événement familial et immersif mettant à l'honneur le patrimoine du village, l'histoire vivante et l'artisanat. Deux campements médiévaux, animations tout le week-end. Entrée gratuite, venez costumé !"
+    "description": "Un événement familial et immersif mettant à l'honneur le patrimoine du village, l'histoire vivante et l'artisanat. Deux campements médiévaux, animations tout le week-end. Entrée gratuite, venez costumé !",
+    "website": ""
   }
 ]
